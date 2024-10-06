@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gadgets Gang</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.3/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-gray-100">
+    <header class="bg-white p-4 shadow flex items-center justify-between">
+        <h1 class="text-xl font-bold mx-auto">Electronic Gadgets</h1>
+        <div class="flex space-x-4">
+            <button id="cartBtn" class="cart-btn bg-blue-500 text-white px-3 py-2 rounded" onclick="toggleCartModal()">Cart (0)</button>
+            <button id="wishlistBtn" class="wishlist-btn bg-green-500 text-white px-3 py-2 rounded" onclick="toggleWishlistModal()">Wishlist (0)</button>
+        </div>
+    </header>
+
+    <main class="flex flex-col md:flex-row p-4">
+        <aside class="md:w-1/5 bg-white p-4 shadow-md">
+            <h2 class="font-bold">Categories</h2><br>
+            <ul id="categoryList" class="space-y-2">
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('All Products')">All Products</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('phones')">Mobiles</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('tablets')">Tabs</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('laptops')">Laptops</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('Apple')">Apple</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('Samsung')">Samsung</li>
+                <li class="cursor-pointer hover:text-blue-500" onclick="loadProducts('Ipad')">iPad</li>
+            </ul>
+        </aside>
+
+        <section id="productSection" class="md:w-4/5 bg-white p-4 shadow-md">
+            <h2 class="font-bold mb-4">Products</h2>
+            <div id="productList" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+        </section>
+    </main>
+
+    <div id="cartModal">
+        <div class="modal-content">
+            <span id="closeCart" class="close cursor-pointer text-red-500" onclick="toggleCartModal()">&times;</span>
+            <h2 class="font-bold">Shopping Cart</h2>
+            <ul id="cartList" class="list-disc pl-5"></ul>
+            <div id="cartTotal" class="font-bold mt-4">Total: $0</div>
+            <button id="buyNow" class="bg-green-500 text-white px-3 py-2 rounded mt-4" onclick="buyNow()">Buy Now</button>
+        </div>
+    </div>
+
+    <div id="wishlistModal">
+        <div class="modal-content">
+            <span id="closeWishlist" class="close cursor-pointer text-red-500" onclick="toggleWishlistModal()">&times;</span>
+            <h2 class="font-bold">Wishlist</h2>
+            <ul id="wishlistList" class="list-disc pl-5"></ul>
+        </div>
+    </div>
+
+    <div id="productDetailsSidebar">
+        <span id="closeProductDetails" class="close cursor-pointer text-red-500" onclick="closeProductDetails()">&times;</span>
+        <div id="selectedProductDetails" class="mt-6"></div>
+    </div>
+
+    <script src="main.js"></script>
+
+</body>
+
+</html>
